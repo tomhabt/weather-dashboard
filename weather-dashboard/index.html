@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <h1>Weather Dashboard</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="container">
+                    <div class="row">
+                        <div id="search-container" class="col-12">
+                            <h5>Search for a City:</h5>
+                            <form id="search-form">
+                                <input type="text" id="search" placeholder="City" />
+                                <button id="submit" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div id="search-history" class="col-12">
+                           <!-- division for saved searches goes here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="container">
+                    <div class="row">
+                        <div id="last" class="col-12">
+                            <!-- last searched  weather fetch information -->
+                            <h5 id="last-city"></h5>
+                            <img id="last-display">
+                            <p id="last-temprature"></p>
+                            <p id="last-wind"></p>
+                            <p id="last-hmdty"></p>
+                            <p>UV Index: <span id="last-uv-index"></span></p>
+                        </div>
+                        <div class="container">
+                            <div id="all-days" class="row justify-content-between">
+                                <h5>5 Day Forecast:</h5>
+                                <div id="day-1" class="col-2">
+                                    <h6 id="ddmmyyyy-1"></h6>
+                                    <img id="display-1">
+                                    <p id="temprature-1"></p>
+                                    <p id="wind-1"></p>
+                                    <p id="hmdty-1"></p>
+                                </div>
+                                <div id="day-2" class="col-2">
+                                    <h6 id="ddmmyyyy-2"></h6>
+                                    <img id="display-2">
+                                    <p id="temperature-2"></p>
+                                    <p id="wind-2"></p>
+                                    <p id="hmdty-2"></p>
+                                </div>
+                                <div id="day-3" class="col-2">
+                                    <h6 id="ddmmyyyy-3"></h6>
+                                    <img id="display-3">
+                                    <p id="temperature-3"></p>
+                                    <p id="wind-3"></p>
+                                    <p id="hmdty-3"></p>
+                                </div>
+                                <div id="day-4" class="col-2">
+                                    <h6 id="ddmmyyyy-4"></h6>
+                                    <img id="display-4">
+                                    <p id="temperature-4"></p>
+                                    <p id="wind-4"></p>
+                                    <p id="hmdty-4"></p>
+                                </div>
+                                <div id="day-5" class="col-2">
+                                    <h6 id="ddmmyyyy-5"></h6>
+                                    <img id="diplay-5">
+                                    <p id="temperature-5"></p>
+                                    <p id="wind-5"></p>
+                                    <p id="hmdty-5"></p>
+                                </div>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./assets/js/weather.js"></script>
+</body>
+</html>
