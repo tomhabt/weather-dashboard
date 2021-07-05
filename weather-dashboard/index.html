@@ -11,83 +11,83 @@
 <body>
     <h1>Weather Dashboard</h1>
     <div class="container">
-        <div class="row">
-            <div class="col-3">
-                <div class="container">
-                    <div class="row">
-                        <div id="search-container" class="col-12">
-                            <h5>Search for a City:</h5>
-                            <form id="search-form">
-                                <input type="text" id="search" placeholder="City" />
-                                <button id="submit" type="submit">Search</button>
-                            </form>
-                        </div>
-                        <div id="search-history" class="col-12">
-                           <!-- division for saved searches goes here -->
-                        </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="container">
+                <div class="row">
+                    <div id="search-container" class="col-12">
+                        <h5>Search for a City:</h5>
+                        <form id="search-form">
+                            <input type="text" id="search" placeholder="City" />
+                            <button id="submit" type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div id="search-history" class="col-12">
+<!-- Local storeage response -->
                     </div>
                 </div>
             </div>
-            <div class="col-9">
-                <div class="container">
-                    <div class="row">
-                        <div id="last" class="col-12">
-                            <!-- last searched  weather fetch information -->
-                            <h5 id="last-city"></h5>
-                            <img id="last-display">
-                            <p id="last-temprature"></p>
-                            <p id="last-wind"></p>
-                            <p id="last-hmdty"></p>
-                            <p>UV Index: <span id="last-uv-index"></span></p>
-                        </div>
-                        <div class="container">
-                            <div id="all-days" class="row justify-content-between">
-                                <h5>5 Day Forecast:</h5>
-                                <div id="day1" class="col-2">
-                                    <h6 id="ddmmyyyy1"></h6>
-                                    <img id="display1">
-                                    <p id="temprature1"></p>
-                                    <p id="wind1"></p>
-                                    <p id="hmdty1"></p>
-                                </div>
-                                <div id="day2" class="col-2">
-                                    <h6 id="ddmmyyyy2"></h6>
-                                    <img id="display2">
-                                    <p id="temperature2"></p>
-                                    <p id="wind2"></p>
-                                    <p id="hmdty2"></p>
-                                </div>
-                                <div id="day3" class="col-2">
-                                    <h6 id="ddmmyyyy3"></h6>
-                                    <img id="display3">
-                                    <p id="temperature3"></p>
-                                    <p id="wind3"></p>
-                                    <p id="hmdty3"></p>
-                                </div>
-                                <div id="day4" class="col-2">
-                                    <h6 id="ddmmyyyy4"></h6>
-                                    <img id="display4">
-                                    <p id="temperature4"></p>
-                                    <p id="wind4"></p>
-                                    <p id="hmdty4"></p>
-                                </div>
-                                <div id="day5" class="col-2">
-                                    <h6 id="ddmmyyyy5"></h6>
-                                    <img id="diplay5">
-                                    <p id="temperature-"></p>
-                                    <p id="wind5"></p>
-                                    <p id="hmdty5"></p>
-                                </div>
+        </div>
+        <div class="col-9">
+            <div class="container">
+                <div class="row">
+                    <div id="last" class="col-12">
+<!-- Five Days -->
+                        <h5 id="last-city"></h5>
+                        <img id="last-display">
+                        <p id="last-temprature"></p>
+                        <p id="last-wind"></p>
+                        <p id="last-hmdty"></p>
+                        <p>UV Index: <span id="last-uv-index"></span></p>
+                    </div>
+                    <div class="container">
+                        <div id="all-days" class="row justify-content-between">
+                            <h5>5 Day Forecast:</h5>
+                            <div id="day-1" class="col-2">
+                                <h6 id="ddmmyyyy-1"></h6>
+                                <img id="display-1">
+                                <p id="temprature-1"></p>
+                                <p id="wind-1"></p>
+                                <p id="hmdty-1"></p>
                             </div>
-                        </div>        
-                    </div>
+                            <div id="day-2" class="col-2">
+                                <h6 id="ddmmyyyy-2"></h6>
+                                <img id="display-2">
+                                <p id="temprature-2"></p>
+                                <p id="wind-2"></p>
+                                <p id="hmdty-2"></p>
+                            </div>
+                            <div id="day-3" class="col-2">
+                                <h6 id="ddmmyyyy-3"></h6>
+                                <img id="display-3">
+                                <p id="temprature-3"></p>
+                                <p id="wind-3"></p>
+                                <p id="hmdty-3"></p>
+                            </div>
+                            <div id="day-4" class="col-2">
+                                <h6 id="ddmmyyyy-4"></h6>
+                                <img id="display-4">
+                                <p id="temprature-4"></p>
+                                <p id="wind-4"></p>
+                                <p id="hmdty-4"></p>
+                            </div>
+                            <div id="day-5" class="col-2">
+                                <h6 id="ddmmyyyy-5"></h6>
+                                <img id="display-5">
+                                <p id="temprature-5"></p>
+                                <p id="wind-5"></p>
+                                <p id="hmdty-5"></p>
+                            </div>
+                        </div>
+                    </div>        
                 </div>
             </div>
-        </div>  
-    </div>
+        </div>
+    </div>  
+</div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./assets/js/weather.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

@@ -41,7 +41,7 @@ fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + input 
     return response.json();
 })
 
-// set current values
+// set current values; let this value occupy i = 0
 .then (function(response) {
     var currentDate = new Date(response.dt * 1000).toLocaleDateString("en-US");
     inputNameEl.textContent = response.name + " " + '(' + (currentDate) + ')';
@@ -62,7 +62,7 @@ fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + input 
 
     // uv-index markings RED, BLUE, YELLOW signal
     .then (function(response) {
-        uvEl.textContent = response.current.uvi;
+        uvIndexEl.textContent = response.current.uvi;
         if (response.current.uvi > 7) {
             uvIndexEl.classList = "uv-danger"
         } else if (response.current.uvi > 2 && response.current.uvi < 7) {
@@ -71,20 +71,20 @@ fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + input 
             uvIndexEl.classList = "uv-safe"
         }
     
-        //for loop to iterate through days start at i=1 as i=0 would reference current day
+        //for loop to iterate starting i = 1 leaving the first index is for the the current date (Last Date)
         
-        for (i = 1; i < 6; i++) {
+        for (var i = 1; i < 6; i++) {
             var forecastedDate = document.querySelector("#ddmmyyyy-" + [i]);
             forecastedDate.textContent = new Date(response.daily[i].dt * 1000).toLocaleDateString("en-US"); ;
-            var forecastedTemprature = document.querySelector("#temperature-" + [i]);
+            var forecastedTemprature = document.querySelector("#temprature-" + [i]);
             forecastedTemprature.textContent =  "Temp: " + response.daily[i].temp.day + "℃";
             var forecastedDisplay = document.querySelector("#display-" + [i]);
             var forecastedSign = response.daily[i].weather[0].icon;
-            forecastedDisplay.setAttribute("src", "https://openweathermap.org/img/wn/" + forecastIcon + "@2x.png");  
+            forecastedDisplay.setAttribute("src", "https://openweathermap.org/img/wn/" + forecastedSign + "@2x.png");  
             var forecastedWind = document.querySelector("#wind-" + [i]);
             var convertedWind = response.daily[i].wind_speed * 3.6;
-            var adjustedForecastedWind = convertWind.toFixed(2)
-            forecastedWind.textContent = "Wind: " + adjustedForecastWind + "km/hr";
+            var adjustedForecastedWind = convertedWind.toFixed(2)
+            forecastedWind.textContent = "Wind: " + adjustedForecastedWind + "km/hr";
             var forecastedHmdty = document.querySelector("#hmdty-" + [i]);
             forecastedHmdty.textContent = "Humidity: " + response.daily[i].humidity + "%";
         }
