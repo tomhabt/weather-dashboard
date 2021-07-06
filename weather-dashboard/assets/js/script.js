@@ -19,12 +19,14 @@ var uvIndexEl = document.querySelector("#last-uv-index");
 var apiKey = "7a0e3b7a2332de049abc9ae5197bfda0"
 
 // local storage check if any available before
-var inputArray = {};
+var inputArray = [];
 
-if (localStorage.getItem('input')) {
+function storeInput () {
+    if (localStorage.getItem('input')) {
     inputArray = JSON.parse(localStorage.getItem('input'))
 } else {
     inputArray = []
+}
 }
 
 localStorage.setItem("input", JSON.stringify(inputArray))
@@ -47,7 +49,8 @@ fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + input 
     inputNameEl.textContent = response.name + " " + '(' + (currentDate) + ')';
     var weatherPic = response.weather[0].icon;
     displayEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
-    tempratureEl.textContent = 'Temp: ' + response.main.temp +'℃';
+    var tempValue = response.main.temp;
+    tempratureEl.textContent = 'Temp: ' + tempValue +'℃';
     var windSpeed = response.wind.speed * 3.6;
     var adjustedSpeed = windSpeed.toFixed(2);
     windEl.textContent = 'Wind: ' + adjustedSpeed + ' km/hr';
@@ -98,7 +101,7 @@ function setStorage() {
     localStorage.setItem("input", JSON.stringify(inputArray))
 ;}
 
-var handler = function(event) {
+var inputHandler = function(event) {
     event.preventDefault;
     currentContainerEl.style.display = "block";
     fiveDayContainerEl.style.display = "flex";
@@ -113,7 +116,7 @@ savedBtnEl.textContent = text
 savedBtnEl.className = "savedBtn";
 savedBtnEl.setAttribute("type", "submit")
 savedBtnEl.setAttribute("value", text);
-savedBtnEl.addEventListener("click", handler)
+savedBtnEl.addEventListener("click", InputHandler)
 savedSearchEl.appendChild(savedBtnEl);
 };    
 
@@ -139,5 +142,5 @@ searchFormEl.addEventListener("submit", function(event) {
     searchEl.value = "";
 });
 
-$(".savedBtn").click(handler);
+$(".savedBtn").click(InputHandler);
 
