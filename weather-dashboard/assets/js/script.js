@@ -21,25 +21,28 @@ var apiKey = "7a0e3b7a2332de049abc9ae5197bfda0"
 // local storage check if any available before
 var inputArray = [];
 
-function storeInput () {
-    if (localStorage.getItem('input')) {
-    inputArray = JSON.parse(localStorage.getItem('input'))
-} else {
+var storedInput = function () {
+    if (localStorage.getItem("input")) {
+   inputArray = JSON.parse(localStorage.getItem("input"))
+ } else {
     inputArray = []
-}
-}
+ }
+ storedInput();
+};
 
 localStorage.setItem("input", JSON.stringify(inputArray))
 var savedinput = JSON.parse(localStorage.getItem("input"))
 
+
+
 // getting response for current input info by fetching
 function fetchLast(input) {
 
-var inputValue = searchEl.value;
+    var inputValue = searchEl.value;
 
-fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + input + '&appid=' + apiKey)
+    fetch('https://api.openweathermap.org/data/2.5/weather?units=metric&q=' + input + '&appid=' + apiKey)
 
-.then (function(response) {
+    .then (function(response) {
     return response.json();
 })
 
@@ -111,14 +114,15 @@ var inputHandler = function(event) {
 
 // create saved buttons
 function createButton(text) {
-var savedBtnEl = document.createElement("button");
-savedBtnEl.textContent = text
-savedBtnEl.className = "savedBtn";
-savedBtnEl.setAttribute("type", "submit")
-savedBtnEl.setAttribute("value", text);
-savedBtnEl.addEventListener("click", InputHandler)
-savedSearchEl.appendChild(savedBtnEl);
+    var savedBtnEl = document.createElement("button");
+    savedBtnEl.textContent = inputValue
+    savedBtnEl.className = "savedBtn";
+    savedBtnEl.setAttribute("type", "submit")
+    savedBtnEl.setAttribute("value", text);
+    savedBtnEl.addEventListener("click", inputHandler)
+    savedSearchEl.appendChild(savedBtnEl);
 };    
+
 
 // loop through array on page load and render saved buttons
 savedinput.forEach(function(item) {
@@ -128,7 +132,7 @@ savedinput.forEach(function(item) {
 // event listener
 searchFormEl.addEventListener("submit", function(event) {
     event.preventDefault();
-    inputValue = searchEl.value;
+    inputValue = searchEl.value.trim();
     if (searchEl.value === "") {
         alert("Please enter a city name!")
         return
@@ -142,5 +146,5 @@ searchFormEl.addEventListener("submit", function(event) {
     searchEl.value = "";
 });
 
-$(".savedBtn").click(InputHandler);
+$(".savedBtn").click(inputHandler);
 
