@@ -30,7 +30,7 @@ Open Weather API
 
 
 Website
-https://tomhabt.github.io/weather-dashboard/weather-dashboard/
+https://tomhabt.github.io/weather-dashboard/
 
 Contribution
 Made with ❤️ by [Thomas Habtemariam]
